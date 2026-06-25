@@ -14,9 +14,9 @@ jobs:
         -name: deploy via ssh
          uses: appleboy/ssh-action@v0.1.5
          with:
-            host : ${{ secrets.ssh_host }}
+            host : ${{ secrets.SSH_HOST }}
             username: root
-            key: ${{ secrets.ssh_key }}
+            key: ${{ secrets.SSH_KEY }}
             script: |
               cd /home/ubuntu/test-action
               git pull origin master
