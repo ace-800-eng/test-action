@@ -1,23 +1,23 @@
-name: actions 
- 
+name: actions
+
 on:
-    push:
-      branches:
-        - master
+  push:
+    branches:
+      - master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-       - name: checkout code
-         uses: actions/checkout@v2
-        - name: deploy via ssh
-          uses: appleboy/ssh-action@v0.1.5
-         with:
-            host: ${{ secrets.SSH_HOST }}
-            username: ubuntu
-            key: ${{ secrets.SSH_KEY }}
-            script: |
-              cd /home/ubuntu/test-action
-              git pull origin master
-              docker compose up -d --build 
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: deploy via ssh
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /home/ubuntu/test-action
+            git pull origin master
+            docker compose up -d --build
