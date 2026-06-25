@@ -1,6 +1,6 @@
 name: actions 
  
-  on:
+on:
     push:
       branches:
         - master
@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: checkout code
-          uses: actions/checkout@v2
+         uses: actions/checkout@v2
         - name: deploy via ssh
-         uses: appleboy/ssh-action@v0.1.5
+          uses: appleboy/ssh-action@v0.1.5
          with:
             host: ${{ secrets.SSH_HOST }}
             username: ubuntu
