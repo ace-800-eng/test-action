@@ -1,0 +1,23 @@
+name: actions 
+ 
+  on:
+    push:
+      branches:
+        - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+       - name: checkout code
+          uses: actions/checkout@v2
+        -name: deploy via ssh
+         uses: appleboy/ssh-action@v0.1.5
+         with:
+            host : ${{ secrets.ssh_host }}
+            username: root
+            key: ${{ secrets.ssh_key }}
+            script: |
+              cd /home/ubuntu/test-action
+              git pull origin master
+              docker compose up -d --build 
