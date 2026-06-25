@@ -11,11 +11,11 @@ jobs:
     steps:
        - name: checkout code
           uses: actions/checkout@v2
-        -name: deploy via ssh
+        - name: deploy via ssh
          uses: appleboy/ssh-action@v0.1.5
          with:
-            host : ${{ secrets.SSH_HOST }}
-            username: root
+            host: ${{ secrets.SSH_HOST }}
+            username: ubuntu
             key: ${{ secrets.SSH_KEY }}
             script: |
               cd /home/ubuntu/test-action
