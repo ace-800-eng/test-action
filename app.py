@@ -44,7 +44,7 @@ HTML = """
             const num2 = parseFloat(document.getElementById('num2').value);
 
             if (isNaN(num1) || isNaN(num2)) {
-                document.getElementById('result').innerText = '⚠️ Please enter valid numbers';
+                document.getElementById('result').innerText = 'koi sahi number likh ';
                 return;
             }
 
