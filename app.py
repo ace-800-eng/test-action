@@ -98,7 +98,7 @@ def calculate():
     elif operation == 'divide':
         result = divide(num1, num2)
     else:
-        result = "Error: Unknown operation"
+        result = "Error: koi sahi number add kro"
 
     return jsonify({'result': result})
 
